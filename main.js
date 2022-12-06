@@ -8,8 +8,8 @@ import "./style.css";
 //		Init
 //////////////////////////////////////////////////////////////////////////////////
 
-const cameraParam = "/camera_para.dat";
-const patternUrl = "/pattern-marker.patt";
+const cameraParam = "./camera_para.dat";
+const patternUrl = "./pattern-marker.patt";
 var arToolkitSource, arToolkitContext, arMarkerControls;
 
 // init renderer
