@@ -1,0 +1,15 @@
+{
+  "name": "arjs-project-test",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^0.1.2",
+    "vite": "^3.2.3"
+  }
+}
