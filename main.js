@@ -9,6 +9,7 @@ const height = window.innerHeight;
 
 const cameraParam = "./camera_para.dat";
 const patternUrl = "./pattern-marker.patt";
+const modelGltf = "./model/scene.gltf";
 
 // array of functions for the rendering loop
 var onRenderFcts = [];
@@ -38,6 +39,9 @@ var scene = new THREE.Scene();
 // Create a camera
 var camera = new THREE.Camera();
 scene.add(camera);
+
+var light = new THREE.AmbientLight(0xffffff);
+scene.add(light);
 
 markerRoot = new THREE.Group();
 scene.add(markerRoot);
@@ -209,26 +213,42 @@ onRenderFcts.push(function (delta) {
 
 var arWorldRoot = smoothedRoot;
 
+const loader = new THREE.GLTFLoader();
+
+const gltf = await loader.loadAsync(modelGltf);
+const model3D = gltf.scene.children[0].children[0];
+
+const mesh = [...model3D.children];
+mesh.forEach((item) => {
+  item.rotation.z = 0;
+  item.rotation.y = 0;
+  item.rotation.x = 30;
+
+  item.scale.set(0.25, 0.25, 0.25);
+});
+
+arWorldRoot.add(...model3D.children);
+
 // add a torus knot
-var geometry = new THREE.BoxGeometry(1, 1, 1);
-var material = new THREE.MeshNormalMaterial({
-  transparent: true,
-  opacity: 0.5,
-  side: THREE.DoubleSide,
-});
-var mesh = new THREE.Mesh(geometry, material);
-mesh.position.y = geometry.parameters.height / 2;
-arWorldRoot.add(mesh);
+// var geometry = new THREE.BoxGeometry(1, 1, 1);
+// var material = new THREE.MeshNormalMaterial({
+//   transparent: true,
+//   opacity: 0.5,
+//   side: THREE.DoubleSide,
+// });
+// var mesh = new THREE.Mesh(geometry, material);
+// mesh.position.y = geometry.parameters.height / 2;
+// arWorldRoot.add(mesh);
 
-var geometry = new THREE.TorusKnotGeometry(0.3, 0.1, 64, 16);
-var material = new THREE.MeshNormalMaterial();
-var mesh = new THREE.Mesh(geometry, material);
-mesh.position.y = 0.5;
-arWorldRoot.add(mesh);
+// var geometry = new THREE.TorusKnotGeometry(0.3, 0.1, 64, 16);
+// var material = new THREE.MeshNormalMaterial();
+// var mesh = new THREE.Mesh(geometry, material);
+// mesh.position.y = 0.5;
+// arWorldRoot.add(mesh);
 
-onRenderFcts.push(function () {
-  mesh.rotation.x += 0.1;
-});
+// onRenderFcts.push(function () {
+//   mesh.rotation.x += 0.1;
+// });
 
 //////////////////////////////////////////////////////////////////////////////////
 //		render the whole thing on the page
