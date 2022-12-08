@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stitch Free
+* source:	https://sketchfab.com/3d-models/stitch-free-777e1bbc9df74359ad460c318d453072
+* author:	moxstudios (https://sketchfab.com/moxstudios)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stitch Free" (https://sketchfab.com/3d-models/stitch-free-777e1bbc9df74359ad460c318d453072) by moxstudios (https://sketchfab.com/moxstudios) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
